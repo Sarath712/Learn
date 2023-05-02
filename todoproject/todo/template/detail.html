@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+    <div class="col-md-6">
+            <div class="shadow card ">
+                <div class="card-body">
+                    <h4 class="card-title">{{task.name}}</h4>
+                    <p><b>{{task.priority}}</b></p>
+                    <p><b>{{task.date}}</b></p>
+                    <a class="btn btn-danger" href="{% url 'todoapp:cbvdelete' task.id %}">Done</a>
+                    <a class="btn btn-dark" href="{% url 'todoapp:cbvupdate' task.id %}">Update</a>
+                </div>
+            </div>
+            <br>
+    </div>
+</form>
+{% endblock %}
